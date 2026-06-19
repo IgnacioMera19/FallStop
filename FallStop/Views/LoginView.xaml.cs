@@ -9,12 +9,16 @@ public partial class LoginView : ContentPage
 
     private async void Ingresar(object sender, EventArgs e)
     {
-        string username = UsernameEntry.Text;
+        string rut = RutEntry.Text;
         string password = PasswordEntry.Text;
 
-        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+        if (rut == "" || password == "")
         {
-            await DisplayAlert("Error", "Por favor, ingrese su nombre de usuario y contraseña.", "OK");
+            await DisplayAlert("Error", "Por favor, ingrese su Rut y contraseña.", "OK");
+            return;
+        } else if (rut != "222171237" || password != "1234")
+        {
+            await DisplayAlert("Error", "Rut o contraseña incorrectos.", "OK");
             return;
         }
 

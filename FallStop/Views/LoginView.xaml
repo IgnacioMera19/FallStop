@@ -9,8 +9,8 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Entry 
-            Placeholder="Nombre de usuario"
-            x:Name="UsernameEntry"
+            Placeholder="Rut"
+            x:Name="RutEntry"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Entry 
