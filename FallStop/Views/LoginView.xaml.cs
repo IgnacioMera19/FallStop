@@ -23,6 +23,6 @@ public partial class LoginView : ContentPage
             return;
         }
 
-         Application.Current.MainPage = new MainPage();
+         Application.Current.MainPage = new AppShell();
     }
 }

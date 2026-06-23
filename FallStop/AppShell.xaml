@@ -3,12 +3,27 @@
     x:Class="FallStop.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:FallStop.Views"
     xmlns:local="clr-namespace:FallStop"
     Title="FallStop">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Salir" Clicked="OnLogoutClicked" />
+    </Shell.ToolbarItems>
 
+    <TabBar>
+        <Tab Title="Home" Icon="icon_home.png">
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate local:MainPage}"
+                Route="MainPage" />
+        </Tab>
+
+        <Tab Title="Información" Icon="icon_data.png">
+            <ShellContent
+                Title="Información"
+                ContentTemplate="{DataTemplate views:InformationView}"
+                Route="InformationView" />
+        </Tab>
+    </TabBar>
 </Shell>

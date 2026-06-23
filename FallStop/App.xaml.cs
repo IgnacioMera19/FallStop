@@ -13,7 +13,7 @@ namespace FallStop
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new LoginView());
+            return new Window(new AppShell());
         }
     }
 }
