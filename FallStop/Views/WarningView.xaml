@@ -25,6 +25,12 @@
                TextColor="White"
                FontSize="16"
                HorizontalTextAlignment="Center"/>
+        
+          <Label x:Name="UbicacionLabel"
+          Text="Obteniendo ubicación..."
+          TextColor="White"
+          FontSize="14"
+          HorizontalTextAlignment="Center"/>
 
         <Button x:Name="CancelButton"
                 Text="Cancelar envío (10)"
@@ -32,7 +38,7 @@
                 TextColor="White"
                 FontSize="18"
                 CornerRadius="10"
-                Clicked="onCancelClicked"/>
+                Clicked="OnCancelClicked"/>
 
     </VerticalStackLayout>
 </ContentPage>

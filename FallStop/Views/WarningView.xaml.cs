@@ -1,71 +1,101 @@
-namespace FallStop.Views;
-
-public partial class WarningView : ContentPage
+namespace FallStop.Views
 {
-	private int _segundosRestantes = 10; // Número de segundos para la cuenta regresiva
-	private CancellationTokenSource _cts;
-    public WarningView()
-	{
-		InitializeComponent();
-	}
-
-    // inicia el contador cuando la página aparece
-    protected override void OnAppearing()
+    public partial class WarningView : ContentPage
     {
-        base.OnAppearing();
-        _cts = new CancellationTokenSource();
-        _ = StartCountdown(_cts.Token);
-    }
+        private int _segundos = 10;
+        private CancellationTokenSource _cts = new();
+        private bool _cancelado = false;
 
-    // Inicia la cuenta regresiva y envía la ubicación si no se cancela
-    private async Task StartCountdown(CancellationToken token)
-    {
-        try
+        public WarningView()
         {
-            while (_segundosRestantes > 0)
-            {
-                if (token.IsCancellationRequested) return;
+            InitializeComponent();
+        }
 
-                MainThread.BeginInvokeOnMainThread(() =>
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _cts = new CancellationTokenSource();
+            _ = StartCountdownAsync(_cts.Token);
+            _ = ObtenerUbicacionAsync();
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            _cancelado = true;
+            _cts?.Cancel();
+        }
+
+        private async Task StartCountdownAsync(CancellationToken token)
+        {
+            try
+            {
+                while (_segundos > 0 && !token.IsCancellationRequested)
                 {
-                    CancelButton.Text = $"Cancelar envío ({_segundosRestantes})";
+                    int seg = _segundos;
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        CancelButton.Text = $"Cancelar envío ({seg})";
+                    });
+
+                    await Task.Delay(1000);
+                    _segundos--;
+                }
+
+                if (!_cancelado)
+                {
+                    await EnviarUbicacion();
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private async void OnCancelClicked(object sender, EventArgs e)
+        {
+            _cancelado = true;
+            _cts?.Cancel();
+            await Navigation.PopModalAsync();
+        }
+
+        private async Task EnviarUbicacion()
+        {
+            await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                await DisplayAlert("Enviado", "Tu ubicación fue enviada a tu familiar.", "OK");
+                await Navigation.PopModalAsync();
+            });
+        }
+
+        private async Task ObtenerUbicacionAsync()
+        {
+            try
+            {
+                var status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
+                if (status != PermissionStatus.Granted)
+                {
+                    UbicacionLabel.Text = "Permiso de ubicación denegado.";
+                    return;
+                }
+
+                var location = await Geolocation.GetLocationAsync(new GeolocationRequest
+                {
+                    DesiredAccuracy = GeolocationAccuracy.Medium,
+                    Timeout = TimeSpan.FromSeconds(5)
                 });
 
-                await Task.Delay(1000);
-                _segundosRestantes--;
+                if (location != null)
+                {
+                    UbicacionLabel.Text = $"Lat: {location.Latitude:F5}\n    Lon: {location.Longitude:F5}";
+                }
+                else
+                {
+                    UbicacionLabel.Text = "No se pudo obtener la ubicación.";
+                }
             }
-
-            if (!token.IsCancellationRequested)
+            catch (Exception)
             {
-                await EnviarUbicacion();
+                UbicacionLabel.Text = "Error al obtener la ubicación.";
             }
         }
-        catch (Exception)
-        {
-            // Ignoramos cualquier error al cancelar
-        }
-    }
-
-    private async void onCancelClicked(object sender, EventArgs e)
-    {
-        _cts?.Cancel();
-        await MainThread.InvokeOnMainThreadAsync(async () =>
-        {
-            await Navigation.PopModalAsync();
-        });
-    }
-
-    private async Task EnviarUbicacion()
-    {
-        // Aquí iría la lógica para enviar la ubicación a un servidor o servicio
-        // Por ahora, solo mostraremos un mensaje de éxito
-        await DisplayAlert("Envío de ubicación", "Ubicación enviada con éxito.", "OK");
-        await Navigation.PopAsync(); // Regresa a la página anterior después de enviar la ubicación
-    }
-
-    protected override void OnDisappearing()
-    {
-        base.OnDisappearing();
-        _cts?.Cancel(); // Cancelar la cuenta regresiva si la página desaparece
     }
 }
