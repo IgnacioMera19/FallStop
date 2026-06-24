@@ -1,12 +1,17 @@
 ﻿using FallStop.Views;
 
-namespace FallStop
+namespace FallStop;
+
+public partial class MainPage : BaseShake
 {
-    public partial class MainPage : BaseShake
+    public MainPage()
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
+
+    private void ToggleDarkMode(object sender, EventArgs e)
+    {
+        Application.Current.UserAppTheme =
+            Application.Current.UserAppTheme == AppTheme.Dark ? AppTheme.Light : AppTheme.Dark;
     }
 }
