@@ -10,6 +10,8 @@
     <Shell.ToolbarItems>
         <ToolbarItem Text="Salir" Clicked="OnLogoutClicked" />
     </Shell.ToolbarItems>
+    
+    
 
     <TabBar>
         <Tab Title="Home" Icon="icon_home.png">
@@ -26,4 +28,7 @@
                 Route="InformationView" />
         </Tab>
     </TabBar>
+    <ShellContent Route="Warning" 
+                  ContentTemplate="{DataTemplate views:WarningView}"
+                  FlyoutItem.IsVisible="False"/>
 </Shell>

@@ -24,12 +24,7 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Evitemos la caida de adultos mayores y evitemos riesgos y lesiones" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Siguiente Pagina" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+            
         </VerticalStackLayout>
     </ScrollView>
 

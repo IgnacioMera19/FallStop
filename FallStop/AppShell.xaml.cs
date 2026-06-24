@@ -1,8 +1,6 @@
 ﻿using FallStop.Views;
 
 
-
-
 namespace FallStop
 {
     public partial class AppShell : Shell
@@ -17,7 +15,11 @@ namespace FallStop
 
             Routing.RegisterRoute(nameof(InformationView), typeof(InformationView));
 
+            Routing.RegisterRoute(nameof(WarningView), typeof(WarningView));
+
         }
+
+        // Devuelve a la página de inicio de sesión cuando se hace clic en el botón de salir
         private void OnLogoutClicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new LoginView();

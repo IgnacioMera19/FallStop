@@ -1,24 +1,44 @@
-﻿namespace FallStop
+﻿using FallStop.Views;
+
+namespace FallStop
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private DateTime _ultimoAgite = DateTime.MinValue;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        // Suscribirse al evento ShakeDetected cuando la página aparece
+        protected override void OnAppearing()
         {
-            count = count = 0;
+            base.OnAppearing();
+            Accelerometer.ShakeDetected += OnShakeDetected;
+            Accelerometer.Start(SensorSpeed.Game);
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Siguiente Pagina";
-            else
-                CounterBtn.Text = $"Siguiente Pagina";
+        // Desuscribirse del evento ShakeDetected cuando la página desaparece
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Accelerometer.ShakeDetected -= OnShakeDetected;
+            Accelerometer.Stop();
+        }
+
+        // Manejar el evento ShakeDetected, llamando a la página de advertencia si ha pasado suficiente tiempo desde el último agite
+        private async void OnShakeDetected(object? sender, EventArgs e)
+        {
+            // Evita que se abra múltiples veces seguidas
+            if ((DateTime.Now - _ultimoAgite).TotalSeconds < 15) return;
+            _ultimoAgite = DateTime.Now;
+
+            await MainThread.InvokeOnMainThreadAsync(async () =>
+            {
+                await Navigation.PushModalAsync(new WarningView());
+            });
         }
     }
 }
