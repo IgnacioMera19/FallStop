@@ -2,28 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FallStop.Views.LoginView"
-             Title="Login">
-    <VerticalStackLayout>
-        <Label 
-            Text="Login app"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Entry 
-            Placeholder="Rut"
-            x:Name="RutEntry"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Entry 
-            Placeholder="Contraseña"
-            x:Name="PasswordEntry"
-            IsPassword="True"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button 
-            Text="Ingresar"
-            Clicked="Ingresar"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             BackgroundColor="DarkSlateBlue">
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+            <Image Source="fall_stop.png" HeightRequest="120" HorizontalOptions="Center" />
 
-    </VerticalStackLayout>
+            <Label Text="FallStop" FontSize="32" FontAttributes="Bold" TextColor="AntiqueWhite" HorizontalOptions="Center" />
+            <Label Text="Protección contra caídas" FontSize="16" TextColor="AntiqueWhite" HorizontalOptions="Center"/>
+            <Label Padding="20"/>
+            <Entry x:Name="RutEntry" Placeholder="RUT (ej: 222171237)" Keyboard="Numeric" MaxLength="12" TextColor="Black" BackgroundColor="AntiqueWhite" />
+            <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" TextColor="Black" BackgroundColor="AntiqueWhite"  />
+
+            <Button Text="Ingresar" Clicked="Ingresar" BackgroundColor="#7BA6FF" TextColor="#2C2C5A" FontAttributes="Bold" CornerRadius="8" HeightRequest="50" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

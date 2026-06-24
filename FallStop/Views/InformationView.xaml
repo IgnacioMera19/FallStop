@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<local:BaseShake 
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FallStop"
-             x:Class="FallStop.Views.InformationView"
-             Title="Información">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<local:BaseShake xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:local="clr-namespace:FallStop"
+                 x:Class="FallStop.Views.InformationView"
+                 Title="Información"
+                 BackgroundColor="{AppThemeBinding Light=#F0F5FF, Dark=#1F2A4A}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Start">
+            <Label Text="Acerca de FallStop" 
+                   FontSize="26" 
+                   FontAttributes="Bold" 
+                   TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" 
+                   HorizontalOptions="Center" />
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}" 
+                    StrokeShape="RoundRectangle 12" 
+                    Padding="20" 
+                    Margin="0,10">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="¿Quiénes somos?" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" />
+
+                    <Label Text="FallStop es una app que evita que te quedes tirado en el suelo después de una caída. Un angel guardian electronico." 
+                           FontSize="16" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
+                </VerticalStackLayout>
+            </Border>
+            <Border />
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}" 
+                    StrokeShape="RoundRectangle 12" 
+                    Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Cómo funciona" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" />
+
+                    <Label Text="1. Detecta cuando te caes (sí, de verdad)" 
+                           FontSize="16" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
+                    <Label Text="2. Te da 10 segundos para decir: 'Estoy bien, tranqui'" 
+                           FontSize="16" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
+                    <Label Text="3. Si no respondes, avisa a tu contacto con tu ubicación... Porque sí, nos preocupamos." 
+                           FontSize="16" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}"/>
+                </VerticalStackLayout>
+            </Border>
+            <Border />
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}" 
+                    StrokeShape="RoundRectangle 12" 
+                    Padding="25">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Preguntas Frecuentes" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" />
+
+                    <Label Text="¿Funciona si estoy bailando?" 
+                           FontSize="16" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" />
+                    <Label Text="Lo mas probable es que si, pero si caes con estilo probablemente no active la alerta." 
+                           FontSize="15" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
+
+                    <Label Text="¿Y si me caigo pero estoy bien?" 
+                           FontSize="16" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" />
+                    <Label Text="Tienes 10 segundos para cancelar...
+                           
+                           No nos hagas quedar como alarmistas." 
+                           FontSize="15" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
+
+                    <Label Text="¿Detecta caídas desde la cama?" 
+                           FontSize="16" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" />
+                    <Label Text="Naturalmente, aunque dormir como tronco no cuenta." 
+                           FontSize="15" 
+                           TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </local:BaseShake>
