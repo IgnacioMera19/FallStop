@@ -4,16 +4,17 @@ namespace FallStop
 {
     public class BaseShake : ContentPage
     {
+        public static bool SensorHabilitado { get; set; } = true;
         private bool _warningAbierto = false;
 
-
-        // Maneja la aparición de la página y comienza a monitorear el acelerómetro
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _warningAbierto = false;
 
-            // Si el acelerómetro no está siendo monitoreado, suscribirse al evento ShakeDetected y comenzar a monitorear
+            // Solo inicia si está habilitado
+            if (!SensorHabilitado) return;
+
             try
             {
                 if (!Accelerometer.IsMonitoring)
@@ -28,25 +29,17 @@ namespace FallStop
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            // Si el acelerómetro está siendo monitoreado, dejar de monitorearlo
-            if (Accelerometer.IsMonitoring)
-            {
-                Accelerometer.Stop();
-                Accelerometer.ShakeDetected -= OnShakeDetected;
-            }
         }
 
-        // Maneja el evento de detección de sacudida
         private async void OnShakeDetected(object? sender, EventArgs e)
         {
-            if (_warningAbierto) return;
+            if (_warningAbierto || !SensorHabilitado) return;
             _warningAbierto = true;
 
             await MainThread.InvokeOnMainThreadAsync(async () =>
             {
                 try
                 {
-                    // Muestra la ventana de advertencia
                     var warning = new WarningView();
                     warning.Disappearing += (s, args) => _warningAbierto = false;
                     await Navigation.PushModalAsync(warning);
@@ -56,6 +49,21 @@ namespace FallStop
                     _warningAbierto = false;
                 }
             });
+        }
+
+        // Llama esto desde el botón en MainPage
+        public static void ToggleSensor()
+        {
+            SensorHabilitado = !SensorHabilitado;
+
+            if (!SensorHabilitado && Accelerometer.IsMonitoring)
+            {
+                Accelerometer.Stop();
+            }
+            else if (SensorHabilitado && !Accelerometer.IsMonitoring)
+            {
+                Accelerometer.Start(SensorSpeed.Game);
+            }
         }
     }
 }
