@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BaseShake xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FallStop.Views.InformationClient"
+             xmlns:local="clr-namespace:FallStop"
+             Title="Información del Paciente"
+             BackgroundColor="{AppThemeBinding Light=#F0F5FF, Dark=#1F2A4A}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="15">
+
+            <Label Text="Datos del Paciente"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,5"/>
+
+            <Label Text="DATOS PERSONALES"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}"
+                   Margin="5,10,0,0"/>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Nombre completo" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Juan Carlos Pérez González" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Edad" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="78 años" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="RUT" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="22.217.123-7" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Fecha de nacimiento" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="14 de marzo de 1947" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Dirección" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Av. Providencia 1234, Santiago" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="CONTACTO DE EMERGENCIA"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}"
+                   Margin="5,10,0,0"/>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Nombre" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="María González (Hija)" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Teléfono" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="+56 9 8765 4321" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="CONDICIONES MÉDICAS"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}"
+                   Margin="5,10,0,0"/>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Enfermedades" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Hipertensión, Diabetes tipo 2" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Alergias" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Penicilina, Aspirina" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Text="MEDICAMENTOS ACTUALES"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}"
+                   Margin="5,10,0,0"/>
+
+            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Medicamento 1" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Enalapril 10mg — 1 vez al día" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                    <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light=#C0C8FF, Dark=#3A2C6A}" Margin="0,5"/>
+                    <Label Text="Medicamento 2" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Metformina 500mg — 2 veces al día" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                    <BoxView HeightRequest="1" BackgroundColor="{AppThemeBinding Light=#C0C8FF, Dark=#3A2C6A}" Margin="0,5"/>
+                    <Label Text="Medicamento 3" TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" FontSize="13" FontAttributes="Bold"/>
+                    <Label Text="Losartán 50mg — 1 vez al día" TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" FontSize="18"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label Margin="0,10"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</local:BaseShake>

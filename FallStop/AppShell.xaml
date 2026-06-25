@@ -32,6 +32,12 @@
                 ContentTemplate="{DataTemplate views:InformationView}"
                 Route="InformationView" />
         </Tab>
+        <Tab Title="Información del Paciente" Icon="icon_data.png">
+            <ShellContent
+                Title="Información del Paciente"
+                ContentTemplate="{DataTemplate views:InformationClient}"
+                Route="InformationClient" />
+        </Tab>
     </TabBar>
 
     <ShellContent Route="Warning"

@@ -2,18 +2,110 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FallStop.Views.LoginView"
-             BackgroundColor="DarkSlateBlue">
+             BackgroundColor="#0D47A1">
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
-            <Image Source="fall_stop.png" HeightRequest="120" HorizontalOptions="Center" />
+        <VerticalStackLayout Padding="35" Spacing="20" VerticalOptions="Center">
 
-            <Label Text="FallStop" FontSize="32" FontAttributes="Bold" TextColor="AntiqueWhite" HorizontalOptions="Center" />
-            <Label Text="Protección contra caídas" FontSize="16" TextColor="AntiqueWhite" HorizontalOptions="Center"/>
-            <Label Padding="20"/>
-            <Entry x:Name="RutEntry" Placeholder="RUT (ej: 222171237)" Keyboard="Numeric" MaxLength="12" TextColor="Black" BackgroundColor="AntiqueWhite" />
-            <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" TextColor="Black" BackgroundColor="AntiqueWhite"  />
 
-            <Button Text="Ingresar" Clicked="Ingresar" BackgroundColor="#7BA6FF" TextColor="#2C2C5A" FontAttributes="Bold" CornerRadius="8" HeightRequest="50" />
+            <Border HeightRequest="150"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"
+                    StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="30"/>
+                </Border.StrokeShape>
+                <Image Source="fall_stop.png" Aspect="AspectFill"/>
+            </Border>
+
+
+            <Label Text="FallStop"
+                   FontSize="38"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Protección inteligente contra caídas"
+                   FontSize="16"
+                   TextColor="#90CAF9"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            
+            <BoxView HeightRequest="1"
+                     BackgroundColor="#1565C0"
+                     Margin="0,10"/>
+
+            <Label Text="¡Bienvenido!"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Ingresa tus datos para continuar"
+                   FontSize="16"
+                   TextColor="#90CAF9"
+                   HorizontalOptions="Center"/>
+
+
+            <VerticalStackLayout Spacing="10" Margin="0,10">
+
+                <Label Text="RUT"
+                       TextColor="#90CAF9"
+                       FontSize="14"
+                       FontAttributes="Bold"/>
+                <Border StrokeThickness="1"
+                        Stroke="#42A5F5"
+                        BackgroundColor="White">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="RutEntry"
+                           Placeholder="Ej: 12345678-9"
+                           Keyboard="Numeric"
+                           MaxLength="12"
+                           TextColor="#0D47A1"
+                           PlaceholderColor="#90CAF9"
+                           BackgroundColor="Transparent"
+                           Margin="10,0"/>
+                </Border>
+
+                <Label Text="Contraseña"
+                       TextColor="#90CAF9"
+                       FontSize="14"
+                       FontAttributes="Bold"/>
+                <Border StrokeThickness="1"
+                        Stroke="#42A5F5"
+                        BackgroundColor="White">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Entry x:Name="PasswordEntry"
+                           Placeholder="Ingresa tu contraseña"
+                           IsPassword="True"
+                           TextColor="#0D47A1"
+                           PlaceholderColor="#90CAF9"
+                           BackgroundColor="Transparent"
+                           Margin="10,0"/>
+                </Border>
+
+            </VerticalStackLayout>
+
+
+            <Button Text="Ingresar"
+                    Clicked="Ingresar"
+                    BackgroundColor="#42A5F5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    CornerRadius="10"
+                    HeightRequest="55"
+                    Margin="0,10"/>
+
+            <!-- Pie -->
+            <Label Text="Tus datos están protegidos"
+                   FontSize="13"
+                   TextColor="#90CAF9"
+                   HorizontalOptions="Center"/>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -81,6 +81,9 @@
 	  <Compile Update="Views\InformationView.xaml.cs">
 	    <DependentUpon>InformationView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\InformationClient.xaml.cs">
+	    <DependentUpon>InformationClient.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\WarningView.xaml.cs">
 	    <DependentUpon>WarningView.xaml</DependentUpon>
 	  </Compile>
@@ -91,6 +94,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\InformationView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InformationClient.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\WarningView.xaml">

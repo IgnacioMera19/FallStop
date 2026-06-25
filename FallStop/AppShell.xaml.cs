@@ -17,6 +17,8 @@ namespace FallStop
 
             Routing.RegisterRoute(nameof(WarningView), typeof(WarningView));
 
+            Routing.RegisterRoute(nameof(InformationClient), typeof(InformationClient));
+
         }
 
         // Devuelve a la página de inicio de sesión cuando se hace clic en el botón de salir
