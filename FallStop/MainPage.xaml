@@ -11,37 +11,37 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="5" VerticalOptions="Center">
-            <Image Source="fall_stop.png" HeightRequest="300" HorizontalOptions="Center" />
-            <Label Padding="10"/>
-            <Border BackgroundColor="{AppThemeBinding Light=#E6F0FF, Dark=#2C3A5A}" 
-                    StrokeShape="RoundRectangle 12" 
-                    Padding="20" 
-                    Margin="0,10" 
-                    HorizontalOptions="Center">
-                <Label Text="FallStop Activo" 
-                       FontSize="28" 
-                       FontAttributes="Bold" 
-                       TextColor="{AppThemeBinding Light=#2C2C5A, Dark=#C0C8FF}" 
-                       HorizontalOptions="Center" />
+        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="15" VerticalOptions="Center">
+
+
+            <Border HeightRequest="250"
+        WidthRequest="250"
+        HorizontalOptions="Center"
+        StrokeThickness="0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="50"/>
+                </Border.StrokeShape>
+                <Image Source="fall_stop.png"
+           Aspect="AspectFill"/>
             </Border>
 
-            <Label Text="El sensor de caídas está monitoreando." 
-                   FontSize="16" 
-                   HorizontalOptions="Center" 
+            <Label Padding="10"/>
+            <Label Text="El sensor de caídas está monitoreando."
+                   FontSize="16"
+                   HorizontalOptions="Center"
                    TextColor="{AppThemeBinding Light=#3A2C6A, Dark=#A0A8D0}" />
         </VerticalStackLayout>
-        
-        <Button Text="🌙" 
-                Clicked="ToggleDarkMode" 
-                BackgroundColor="#7BA6FF" 
-                TextColor="#2C2C5A" 
-                FontAttributes="Bold" 
-                CornerRadius="25" 
-                WidthRequest="50" 
-                HeightRequest="50" 
-                HorizontalOptions="End" 
-                VerticalOptions="Start" 
+
+        <Button Text="🌙"
+                Clicked="ToggleDarkMode"
+                BackgroundColor="#7BA6FF"
+                TextColor="#2C2C5A"
+                FontAttributes="Bold"
+                CornerRadius="25"
+                WidthRequest="50"
+                HeightRequest="50"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
                 Margin="20" />
     </Grid>
 </local:BaseShake>

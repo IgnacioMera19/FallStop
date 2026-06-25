@@ -5,18 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:FallStop.Views"
     xmlns:local="clr-namespace:FallStop"
-    Title="FallStop">
+    Title="FallStop"
+    Shell.BackgroundColor="#1565C0"
+    Shell.TitleColor="White"
+    Shell.ForegroundColor="White"
+    Shell.TabBarBackgroundColor="#1565C0"
+    Shell.TabBarForegroundColor="White"
+    Shell.TabBarTitleColor="White"
+    Shell.TabBarUnselectedColor="#90CAF9">
 
     <Shell.ToolbarItems>
         <ToolbarItem Text="Salir" Clicked="OnLogoutClicked" />
     </Shell.ToolbarItems>
-    
-    
 
     <TabBar>
-        <Tab Title="Home" Icon="icon_home.png">
+        <Tab Title="Inicio" Icon="icon_home.png">
             <ShellContent
-                Title="Home"
+                Title="Inicio"
                 ContentTemplate="{DataTemplate local:MainPage}"
                 Route="MainPage" />
         </Tab>
@@ -28,7 +33,8 @@
                 Route="InformationView" />
         </Tab>
     </TabBar>
-    <ShellContent Route="Warning" 
+
+    <ShellContent Route="Warning"
                   ContentTemplate="{DataTemplate views:WarningView}"
                   FlyoutItem.IsVisible="False"/>
 </Shell>
